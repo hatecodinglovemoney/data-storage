@@ -8,8 +8,8 @@ db_name = os.getenv("MONGO_INITDB_DATABASE", "default_database")
 db = client[db_name]
 
 
-def record_data(hashed_identifier: str, data: dict):
-    collection = db[hashed_identifier]
+def record_data(hashed_identifier: str, data: dict, api_url: str):
+    collection = db[api_url]
     # Решить с историей изменений.
     existing_record = collection.find_one_and_update(
         {"_id": hashed_identifier},

@@ -18,7 +18,11 @@ def get_and_record_data(request_data: ApiRequestSchema) -> None:
     response_body = response.json()
     unique_values = {key: response_body[key] for key in request_data.unique_combination}
     hashed_identifier = hash_data(data=unique_values)
-    record_data(hashed_identifier=hashed_identifier, data=response_body)
+    record_data(
+        hashed_identifier=hashed_identifier,
+        data=response_body,
+        api_url=request_data.api_url
+    )
     return None
 
 

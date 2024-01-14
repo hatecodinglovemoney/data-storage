@@ -27,5 +27,5 @@ def get_and_record_data(request_data: ApiRequestSchema) -> None:
 
 
 @app.get("/get_data")
-def get_data_by_url(url: str):  # TODO: Удалить это
-    return get_data(url=url)
+def get_data_by_url(collection_name: str):  # TODO: Удалить это
+    return get_data(collection_name=collection_name)
